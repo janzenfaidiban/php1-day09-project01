@@ -44,7 +44,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
                 echo "<td class='border-2 border-black p-2'>" . $user_data['distrik'] . "</td>";
                 echo "<td class='border-2 border-black p-2'>" . $user_data['kabupaten'] . "</td>";
                 echo "<td class='border-2 border-black p-2'>" . $user_data['provinsi'] . "</td>";
-                echo "<td class='border-2 border-black p-2'><a href='edit.php?id=$user_data[id]' class='bg-gray-700 text-white px-2 py-1 rounded shadow'>Edit</a> | <a href='delete.php?id=$user_data[id]' class='bg-red-700 text-white px-2 py-1 rounded shadow'>Delete</a></td></tr>";
+                echo "<td class='border-2 border-black p-2'><a href='edit.php?id=$user_data[id]' class='bg-gray-700 text-white px-2 py-1 rounded shadow'>Edit</a> | <a href='delete.php?id=$user_data[id]' onclick='return confirm_delete()'  class='bg-red-700 text-white px-2 py-1 rounded shadow'>Delete</a></td></tr>";
             }
 
             ?>
@@ -53,7 +53,11 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
     </div>
 
 
-
+    <script type="text/javascript">
+        function confirm_delete() {
+            return confirm('Ko yakin?');
+        }
+    </script>
 
 </body>
 
